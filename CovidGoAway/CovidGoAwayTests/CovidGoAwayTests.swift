@@ -10,23 +10,20 @@ import XCTest
 
 class CovidGoAwayTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testZimbabwe() {
+        let exp = "Ziiimbabwe"
+        
+        let apiClient = APIClient()
+        
+        apiClient.fetchAllData { (result) in
+            switch result {
+            case .failure(let error):
+                XCTFail("error decoding data \(error.localizedDescription)")
+            case .success(let countries):
+                let firstCountry = countries.first?.country
+                print(firstCountry ?? "AAAAAAHHHHH")
+                XCTAssertEqual(exp, firstCountry, "Countries Aren't Equal")
+            }
         }
     }
 
