@@ -103,8 +103,7 @@
 		0261B1A225840FFC00610486 /* CovidGoAway */ = {
 			isa = PBXGroup;
 			children = (
-				0261B1EC2584169600610486 /* APIClient.swift */,
-				0261B1F12584171B00610486 /* CovidCountryData.swift */,
+				0261B201258437DB00610486 /* Models+APIClient */,
 				0261B1E3258412F700610486 /* Controllers */,
 				0261B1D62584118D00610486 /* Supporting Files */,
 				0261B1B12584100100610486 /* Info.plist */,
@@ -148,6 +147,15 @@
 				0261B1E42584134F00610486 /* CasesUSController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0261B201258437DB00610486 /* Models+APIClient */ = {
+			isa = PBXGroup;
+			children = (
+				0261B1EC2584169600610486 /* APIClient.swift */,
+				0261B1F12584171B00610486 /* CovidCountryData.swift */,
+			);
+			path = "Models+APIClient";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

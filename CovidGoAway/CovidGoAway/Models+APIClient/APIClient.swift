@@ -9,7 +9,7 @@ import Foundation
 
 struct APIClient {
     
-    public func fetchAllData(completion: @escaping (Result<[CovidDataWrapper],Error>) -> ()) {
+    public func fetchAllData(completion: @escaping (Result<[CountryData],Error>) -> ()) {
         let endpoint = "https://corona.lmao.ninja/v2/countries?sort=country"
         guard let url = URL(string: endpoint) else {
             return
@@ -20,7 +20,7 @@ struct APIClient {
             }
             if let data = data {
                 do {
-                    let results = try JSONDecoder().decode([CovidDataWrapper].self, from: data)
+                    let results = try JSONDecoder().decode([CountryData].self, from: data)
                     completion(.success(results))
                 } catch {
                     completion(.failure(error))

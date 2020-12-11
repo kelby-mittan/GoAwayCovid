@@ -20,9 +20,11 @@ class CovidGoAwayTests: XCTestCase {
             case .failure(let error):
                 XCTFail("error decoding data \(error.localizedDescription)")
             case .success(let countries):
-                let firstCountry = countries.first?.country
-                print(firstCountry ?? "AAAAAAHHHHH")
-                XCTAssertEqual(exp, firstCountry, "Countries Aren't Equal")
+                DispatchQueue.main.async {
+                    let firstCountry = countries.first?.country
+                    print(firstCountry ?? "AAAAAAHHHHH")
+                    XCTAssertEqual(exp, firstCountry, "Countries Aren't Equal")
+                }
             }
         }
     }

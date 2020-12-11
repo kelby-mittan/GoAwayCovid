@@ -39,6 +39,10 @@
                             <constraint firstItem="RNb-fa-h9p" firstAttribute="top" secondItem="1g8-dz-bJw" secondAttribute="bottom" constant="40" id="ozv-rr-NWK"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="casesLabel" destination="RNb-fa-h9p" id="lbV-KF-JEA"/>
+                        <outlet property="happySadImageView" destination="1g8-dz-bJw" id="ZUB-LW-LHR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
