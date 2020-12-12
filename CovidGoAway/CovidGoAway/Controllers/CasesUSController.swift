@@ -10,8 +10,8 @@ import UIKit
 class CasesUSController: UIViewController {
 
     @IBOutlet var happySadImageView: UIImageView!
-    
     @IBOutlet var casesLabel: UILabel!
+    @IBOutlet var testLabel: UILabel!
     
     let apiClient = APIClient()
     
@@ -21,6 +21,14 @@ class CasesUSController: UIViewController {
         super.viewDidLoad()
         getCountryData()
         happySadImageView.image = UIImage(named: "cry")
+        
+        testLabel.text = String(UserDefaults.standard.object(forKey: UserDefaults.lastTimeKey) as? Int ?? 0)
+        
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        saveLastChecked()
     }
     
     private func getCountryData() {
@@ -38,4 +46,18 @@ class CasesUSController: UIViewController {
             }
         }
     }
+    
+    
+    private func saveLastChecked() {
+        let lastChecked = countries.filter { $0.country == "USA" }
+        
+        UserDefaults.standard.set(lastChecked.first?.updated, forKey: UserDefaults.lastTimeKey)
+    }
+    
+    @IBAction func saveButton(_ sender: UIButton) {
+        
+        print("hey now")
+//        saveLastChecked()
+    }
+    
 }

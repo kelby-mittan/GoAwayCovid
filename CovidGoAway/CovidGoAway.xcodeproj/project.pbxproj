@@ -17,6 +17,7 @@
 		0261B1E52584134F00610486 /* CasesUSController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0261B1E42584134F00610486 /* CasesUSController.swift */; };
 		0261B1ED2584169600610486 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0261B1EC2584169600610486 /* APIClient.swift */; };
 		0261B1F22584171B00610486 /* CovidCountryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0261B1F12584171B00610486 /* CovidCountryData.swift */; };
+		0261B2032584393200610486 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0261B2022584393200610486 /* UserDefaults.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		0261B1E42584134F00610486 /* CasesUSController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CasesUSController.swift; sourceTree = "<group>"; };
 		0261B1EC2584169600610486 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		0261B1F12584171B00610486 /* CovidCountryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidCountryData.swift; sourceTree = "<group>"; };
+		0261B2022584393200610486 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 		0261B1A225840FFC00610486 /* CovidGoAway */ = {
 			isa = PBXGroup;
 			children = (
+				0261B2072584394500610486 /* Extensions */,
 				0261B201258437DB00610486 /* Models+APIClient */,
 				0261B1E3258412F700610486 /* Controllers */,
 				0261B1D62584118D00610486 /* Supporting Files */,
@@ -156,6 +159,14 @@
 				0261B1F12584171B00610486 /* CovidCountryData.swift */,
 			);
 			path = "Models+APIClient";
+			sourceTree = "<group>";
+		};
+		0261B2072584394500610486 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0261B2022584393200610486 /* UserDefaults.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,6 +301,7 @@
 			files = (
 				0261B1A425840FFC00610486 /* AppDelegate.swift in Sources */,
 				0261B1E52584134F00610486 /* CasesUSController.swift in Sources */,
+				0261B2032584393200610486 /* UserDefaults.swift in Sources */,
 				0261B1A625840FFC00610486 /* SceneDelegate.swift in Sources */,
 				0261B1ED2584169600610486 /* APIClient.swift in Sources */,
 				0261B1F22584171B00610486 /* CovidCountryData.swift in Sources */,

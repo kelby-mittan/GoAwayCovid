@@ -28,20 +28,39 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="country test label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gWa-HU-QqT">
+                                <rect key="frame" x="20" y="526" width="374" height="36"/>
+                                <fontDescription key="fontDescription" name="KohinoorGujarati-Bold" family="Kohinoor Gujarati" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CDn-Lq-jrT">
+                                <rect key="frame" x="184" y="602" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="saveButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4TN-hR-epk"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="RNb-fa-h9p" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="2H8-rw-gzp"/>
                             <constraint firstItem="1g8-dz-bJw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4Zm-EB-0ey"/>
+                            <constraint firstItem="CDn-Lq-jrT" firstAttribute="top" secondItem="gWa-HU-QqT" secondAttribute="bottom" constant="40" id="7Iw-Vq-TaO"/>
                             <constraint firstItem="1g8-dz-bJw" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="W4w-xc-Ii1"/>
                             <constraint firstItem="RNb-fa-h9p" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bKY-oP-ALw"/>
+                            <constraint firstItem="gWa-HU-QqT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="bVU-4b-DZp"/>
+                            <constraint firstItem="CDn-Lq-jrT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mzr-Ya-qvx"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gWa-HU-QqT" secondAttribute="trailing" constant="20" id="nXq-0W-NcR"/>
                             <constraint firstItem="RNb-fa-h9p" firstAttribute="top" secondItem="1g8-dz-bJw" secondAttribute="bottom" constant="40" id="ozv-rr-NWK"/>
+                            <constraint firstItem="gWa-HU-QqT" firstAttribute="top" secondItem="RNb-fa-h9p" secondAttribute="bottom" constant="60" id="tWX-cv-4vH"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="casesLabel" destination="RNb-fa-h9p" id="lbV-KF-JEA"/>
                         <outlet property="happySadImageView" destination="1g8-dz-bJw" id="ZUB-LW-LHR"/>
+                        <outlet property="testLabel" destination="gWa-HU-QqT" id="Py2-Sg-cKB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
