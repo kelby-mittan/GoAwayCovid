@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,55 +18,88 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.grid.cross.up.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="1g8-dz-bJw">
-                                <rect key="frame" x="103.5" y="182" width="207" height="209"/>
+                                <rect key="frame" x="103.5" y="179" width="207" height="209"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="1g8-dz-bJw" secondAttribute="height" multiplier="1:1" id="BrP-e0-GWf"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CasesLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RNb-fa-h9p">
-                                <rect key="frame" x="140.5" y="430" width="133.5" height="36"/>
-                                <fontDescription key="fontDescription" name="KohinoorGujarati-Bold" family="Kohinoor Gujarati" pointSize="24"/>
+                                <rect key="frame" x="129" y="427" width="156" height="42"/>
+                                <fontDescription key="fontDescription" name="KohinoorGujarati-Bold" family="Kohinoor Gujarati" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="country test label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gWa-HU-QqT">
-                                <rect key="frame" x="20" y="526" width="374" height="36"/>
-                                <fontDescription key="fontDescription" name="KohinoorGujarati-Bold" family="Kohinoor Gujarati" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CDn-Lq-jrT">
-                                <rect key="frame" x="184" y="602" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="saveButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4TN-hR-epk"/>
-                                </connections>
-                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vrL-2o-48i">
+                                <rect key="frame" x="0.0" y="489" width="414" height="313"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="TyI-1h-8AV">
+                                    <size key="itemSize" width="305" height="239"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="dataCell" id="xim-8I-gT1" customClass="DataCell" customModule="CovidGoAway" customModuleProvider="target">
+                                        <rect key="frame" x="54.5" y="0.0" width="305" height="239"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="tep-lP-syR">
+                                            <rect key="frame" x="0.0" y="0.0" width="305" height="239"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dataTitleLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y6e-g3-YqF">
+                                                    <rect key="frame" x="20" y="20" width="265" height="34.5"/>
+                                                    <fontDescription key="fontDescription" name="KohinoorGujarati-Bold" family="Kohinoor Gujarati" pointSize="23"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dataLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XUG-ug-8mi">
+                                                    <rect key="frame" x="20" y="102.5" width="265" height="34.5"/>
+                                                    <fontDescription key="fontDescription" name="KohinoorGujarati-Bold" family="Kohinoor Gujarati" pointSize="23"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Y6e-g3-YqF" firstAttribute="top" secondItem="tep-lP-syR" secondAttribute="top" constant="20" id="6yc-Lh-fbA"/>
+                                                <constraint firstItem="Y6e-g3-YqF" firstAttribute="leading" secondItem="tep-lP-syR" secondAttribute="leading" constant="20" id="8F2-cO-Ddd"/>
+                                                <constraint firstAttribute="trailing" secondItem="XUG-ug-8mi" secondAttribute="trailing" constant="20" id="A6a-Nr-U6d"/>
+                                                <constraint firstItem="XUG-ug-8mi" firstAttribute="centerY" secondItem="tep-lP-syR" secondAttribute="centerY" id="LSg-64-7H1"/>
+                                                <constraint firstAttribute="trailing" secondItem="Y6e-g3-YqF" secondAttribute="trailing" constant="20" id="Uwy-44-rTd"/>
+                                                <constraint firstItem="XUG-ug-8mi" firstAttribute="leading" secondItem="tep-lP-syR" secondAttribute="leading" constant="20" id="V2L-LB-46x"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="305" height="239"/>
+                                        <connections>
+                                            <outlet property="dataLabel" destination="XUG-ug-8mi" id="4Em-Bf-Beb"/>
+                                            <outlet property="dataTitleLabel" destination="Y6e-g3-YqF" id="3LP-J6-Dh2"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="RNb-fa-h9p" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="2H8-rw-gzp"/>
                             <constraint firstItem="1g8-dz-bJw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4Zm-EB-0ey"/>
-                            <constraint firstItem="CDn-Lq-jrT" firstAttribute="top" secondItem="gWa-HU-QqT" secondAttribute="bottom" constant="40" id="7Iw-Vq-TaO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="vrL-2o-48i" secondAttribute="bottom" constant="60" id="92r-3V-vdb"/>
+                            <constraint firstItem="vrL-2o-48i" firstAttribute="top" secondItem="RNb-fa-h9p" secondAttribute="bottom" constant="20" id="Cyf-EH-JQg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vrL-2o-48i" secondAttribute="trailing" id="K4o-j3-ugw"/>
+                            <constraint firstItem="vrL-2o-48i" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="LZd-a3-JFt"/>
                             <constraint firstItem="1g8-dz-bJw" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="W4w-xc-Ii1"/>
                             <constraint firstItem="RNb-fa-h9p" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bKY-oP-ALw"/>
-                            <constraint firstItem="gWa-HU-QqT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="bVU-4b-DZp"/>
-                            <constraint firstItem="CDn-Lq-jrT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mzr-Ya-qvx"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gWa-HU-QqT" secondAttribute="trailing" constant="20" id="nXq-0W-NcR"/>
                             <constraint firstItem="RNb-fa-h9p" firstAttribute="top" secondItem="1g8-dz-bJw" secondAttribute="bottom" constant="40" id="ozv-rr-NWK"/>
-                            <constraint firstItem="gWa-HU-QqT" firstAttribute="top" secondItem="RNb-fa-h9p" secondAttribute="bottom" constant="60" id="tWX-cv-4vH"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="casesLabel" destination="RNb-fa-h9p" id="lbV-KF-JEA"/>
+                        <outlet property="collectionView" destination="vrL-2o-48i" id="Uy1-6J-Nz3"/>
                         <outlet property="happySadImageView" destination="1g8-dz-bJw" id="ZUB-LW-LHR"/>
-                        <outlet property="testLabel" destination="gWa-HU-QqT" id="Py2-Sg-cKB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="86" y="89"/>
+            <point key="canvasLocation" x="85.507246376811594" y="88.392857142857139"/>
         </scene>
     </scenes>
     <resources>
