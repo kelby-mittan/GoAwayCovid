@@ -20,6 +20,7 @@
 		0261B2032584393200610486 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0261B2022584393200610486 /* UserDefaults.swift */; };
 		0261B20C258482FD00610486 /* DateString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0261B20B258482FD00610486 /* DateString.swift */; };
 		0261B21125869A9100610486 /* DataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0261B21025869A9000610486 /* DataCell.swift */; };
+		0261B2162586B4FE00610486 /* IntAndDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0261B2152586B4FE00610486 /* IntAndDouble.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		0261B2022584393200610486 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		0261B20B258482FD00610486 /* DateString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateString.swift; sourceTree = "<group>"; };
 		0261B21025869A9000610486 /* DataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCell.swift; sourceTree = "<group>"; };
+		0261B2152586B4FE00610486 /* IntAndDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntAndDouble.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +173,7 @@
 			children = (
 				0261B2022584393200610486 /* UserDefaults.swift */,
 				0261B20B258482FD00610486 /* DateString.swift */,
+				0261B2152586B4FE00610486 /* IntAndDouble.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0261B2162586B4FE00610486 /* IntAndDouble.swift in Sources */,
 				0261B1A425840FFC00610486 /* AppDelegate.swift in Sources */,
 				0261B1E52584134F00610486 /* CasesUSController.swift in Sources */,
 				0261B2032584393200610486 /* UserDefaults.swift in Sources */,

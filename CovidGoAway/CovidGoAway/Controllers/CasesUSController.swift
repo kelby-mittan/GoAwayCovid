@@ -29,7 +29,7 @@ class CasesUSController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         getCountryData()
-        happySadImageView.image = UIImage(named: "cry")
+        happySadImageView.image = UIImage(named: "face-mask")
         collectionView.delegate = self
         collectionView.dataSource = self
     }
@@ -57,7 +57,7 @@ class CasesUSController: UIViewController {
                         return
                     }
                     self?.country = usa
-                    self?.casesLabel.text = String(usa.todayCases)
+                    self?.casesLabel.text = " As of " + usa.updated.since1970ToStr()
 //                    dump(countries)
                     self?.dataTupleArr = self?.country?.getCountryTupleArray() ?? []
                     dump(self?.country?.getCountryTupleArray())
@@ -85,11 +85,24 @@ extension CasesUSController: UICollectionViewDelegateFlowLayout, UICollectionVie
             fatalError("Error dequeing cell")
         }
         cell.backgroundColor = .green
+        cell.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width).isActive = true
         cell.configCell(for: dataTupleArr[indexPath.row])
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: UIScreen.main.bounds.width, height: collectionView.frame.height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
     }
 }

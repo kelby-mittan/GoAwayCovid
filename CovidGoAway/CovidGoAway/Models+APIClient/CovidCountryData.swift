@@ -34,8 +34,9 @@ struct CountryData: Decodable {
     
     public func getCountryTupleArray() -> [(title: String, value: String)] {
         
-        return [("Cases So Far Today",self.todayCases.description),("Deaths So Far Today", self.todayDeaths.description)]
+        return [("Cases So Far Today",self.todayCases.delimeter),("Deaths So Far Today", self.todayDeaths.delimeter), ("Total Cases",self.cases.delimeter), ("Total Deaths",self.deaths.delimeter)]
     }
+    
 }
 
 struct CountryInfo: Decodable {
