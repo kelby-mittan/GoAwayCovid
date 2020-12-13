@@ -33,8 +33,7 @@ struct CountryData: Decodable {
     let criticalPerOneMillion: Double
     
     public func getCountryTupleArray() -> [(title: String, value: String)] {
-        
-        return [("Cases So Far Today",self.todayCases.delimeter),("Deaths So Far Today", self.todayDeaths.delimeter), ("Total Cases",self.cases.delimeter), ("Total Deaths",self.deaths.delimeter)]
+        return [("Cases Today",self.todayCases.delimeter),("Deaths Today", self.todayDeaths.delimeter), ("Total Cases",self.cases.delimeter), ("Total Deaths",self.deaths.delimeter), ("Cases Per One Mil",self.casesPerOneMillion.delimeter), ("Deaths Per One Mil", self.deathsPerOneMillion.delimeter)]
     }
     
 }

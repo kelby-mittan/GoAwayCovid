@@ -12,7 +12,7 @@ extension Int {
     func since1970ToStr() -> String {
         let date = Date(timeIntervalSince1970: TimeInterval(self) / 1000)
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMM d, hh:mm"
+        dateFormatter.dateFormat = "MMM d, hh:mm a"
         return dateFormatter.string(from: date)
     }
     

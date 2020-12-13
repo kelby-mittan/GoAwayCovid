@@ -23,6 +23,9 @@ extension Int {
 extension Double {
     var delimeter: String {
         let arr = self.description.components(separatedBy: ".")
-        return (Int(arr[0])?.delimeter ?? "") + "." + arr[1]
+        if (arr.last ?? "") == "0" {
+            return (Int(arr.first ?? "")?.delimeter ?? "")
+        }
+        return (Int(arr.first ?? "")?.delimeter ?? "") + "." + (arr.last ?? "")
     }
 }

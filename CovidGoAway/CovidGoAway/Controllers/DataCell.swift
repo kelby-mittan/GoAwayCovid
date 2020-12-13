@@ -14,6 +14,8 @@ class DataCell: UICollectionViewCell {
     @IBOutlet var dataLabel: UILabel!
     
     public func configCell(for data: (title: String, value: String)) {
+        dataTitleLabel.textColor = .white
+        dataLabel.textColor = .white
         dataTitleLabel.text = data.title
         dataLabel.text = data.value
     }

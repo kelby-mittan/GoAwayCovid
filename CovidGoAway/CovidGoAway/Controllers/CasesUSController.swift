@@ -28,10 +28,24 @@ class CasesUSController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setGradientBackground()
+        casesLabel.textColor = .white
         getCountryData()
-        happySadImageView.image = UIImage(named: "face-mask")
+        happySadImageView.image = UIImage(named: "faceMask")
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.backgroundColor = .clear
+    }
+    
+    private func setGradientBackground() {
+        let color1 = #colorLiteral(red: 0.9411764741, green: 0.4980392158, blue: 0.3529411852, alpha: 1).cgColor
+        let color2 = #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1).cgColor
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [color1, color2]
+        gradientLayer.locations = [0.0, 1.0]
+        gradientLayer.frame = self.view.bounds
+                
+        self.view.layer.insertSublayer(gradientLayer, at:0)
     }
     
     private func getLastTime() -> String {
@@ -57,10 +71,8 @@ class CasesUSController: UIViewController {
                         return
                     }
                     self?.country = usa
-                    self?.casesLabel.text = " As of " + usa.updated.since1970ToStr()
-//                    dump(countries)
+                    self?.casesLabel.text = usa.updated.since1970ToStr()
                     self?.dataTupleArr = self?.country?.getCountryTupleArray() ?? []
-                    dump(self?.country?.getCountryTupleArray())
                 }
             }
         }
@@ -84,7 +96,7 @@ extension CasesUSController: UICollectionViewDelegateFlowLayout, UICollectionVie
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "dataCell", for: indexPath) as? DataCell else {
             fatalError("Error dequeing cell")
         }
-        cell.backgroundColor = .green
+        cell.backgroundColor = .clear
         cell.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width).isActive = true
         cell.configCell(for: dataTupleArr[indexPath.row])
         return cell

@@ -17,20 +17,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.grid.cross.up.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="1g8-dz-bJw">
-                                <rect key="frame" x="103.5" y="179" width="207" height="209"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="1g8-dz-bJw" secondAttribute="height" multiplier="1:1" id="BrP-e0-GWf"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CasesLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RNb-fa-h9p">
-                                <rect key="frame" x="129" y="427" width="156" height="42"/>
-                                <fontDescription key="fontDescription" name="KohinoorGujarati-Bold" family="Kohinoor Gujarati" pointSize="28"/>
+                                <rect key="frame" x="101.5" y="127.5" width="211.5" height="57"/>
+                                <fontDescription key="fontDescription" name="KohinoorGujarati-Bold" family="Kohinoor Gujarati" pointSize="38"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vrL-2o-48i">
-                                <rect key="frame" x="0.0" y="489" width="414" height="224"/>
+                                <rect key="frame" x="0.0" y="471.5" width="414" height="224"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="TyI-1h-8AV">
                                     <size key="itemSize" width="400" height="239"/>
@@ -54,18 +48,18 @@
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dataLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XUG-ug-8mi">
                                                     <rect key="frame" x="20" y="91" width="360" height="57"/>
-                                                    <fontDescription key="fontDescription" name="KohinoorGujarati-Bold" family="Kohinoor Gujarati" pointSize="38"/>
+                                                    <fontDescription key="fontDescription" name="KohinoorGujarati-Bold" family="Kohinoor Gujarati" pointSize="42"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Y6e-g3-YqF" firstAttribute="top" secondItem="tep-lP-syR" secondAttribute="top" constant="20" id="6yc-Lh-fbA"/>
                                                 <constraint firstItem="Y6e-g3-YqF" firstAttribute="leading" secondItem="tep-lP-syR" secondAttribute="leading" constant="20" id="8F2-cO-Ddd"/>
                                                 <constraint firstAttribute="trailing" secondItem="XUG-ug-8mi" secondAttribute="trailing" constant="20" id="A6a-Nr-U6d"/>
                                                 <constraint firstItem="XUG-ug-8mi" firstAttribute="centerY" secondItem="tep-lP-syR" secondAttribute="centerY" id="LSg-64-7H1"/>
                                                 <constraint firstAttribute="trailing" secondItem="Y6e-g3-YqF" secondAttribute="trailing" constant="20" id="Uwy-44-rTd"/>
                                                 <constraint firstItem="XUG-ug-8mi" firstAttribute="leading" secondItem="tep-lP-syR" secondAttribute="leading" constant="20" id="V2L-LB-46x"/>
+                                                <constraint firstItem="XUG-ug-8mi" firstAttribute="top" secondItem="Y6e-g3-YqF" secondAttribute="bottom" constant="12" id="ure-77-jcS"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="400" height="239"/>
@@ -76,19 +70,25 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.grid.cross.up.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="1g8-dz-bJw">
+                                <rect key="frame" x="103.5" y="223.5" width="207" height="209"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="1g8-dz-bJw" secondAttribute="height" multiplier="1:1" id="BrP-e0-GWf"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="RNb-fa-h9p" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="2H8-rw-gzp"/>
                             <constraint firstItem="1g8-dz-bJw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4Zm-EB-0ey"/>
-                            <constraint firstItem="vrL-2o-48i" firstAttribute="top" secondItem="RNb-fa-h9p" secondAttribute="bottom" constant="20" id="Cyf-EH-JQg"/>
+                            <constraint firstItem="1g8-dz-bJw" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-120" id="AX2-9Y-7Ee"/>
+                            <constraint firstItem="vrL-2o-48i" firstAttribute="top" secondItem="1g8-dz-bJw" secondAttribute="bottom" constant="40" id="HHf-nN-oXG"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vrL-2o-48i" secondAttribute="trailing" id="K4o-j3-ugw"/>
                             <constraint firstItem="vrL-2o-48i" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="LZd-a3-JFt"/>
                             <constraint firstItem="1g8-dz-bJw" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="W4w-xc-Ii1"/>
                             <constraint firstItem="RNb-fa-h9p" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bKY-oP-ALw"/>
                             <constraint firstItem="vrL-2o-48i" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.25" id="jnJ-xk-ySf"/>
-                            <constraint firstItem="RNb-fa-h9p" firstAttribute="top" secondItem="1g8-dz-bJw" secondAttribute="bottom" constant="40" id="ozv-rr-NWK"/>
+                            <constraint firstItem="1g8-dz-bJw" firstAttribute="top" secondItem="RNb-fa-h9p" secondAttribute="bottom" constant="40" id="yvP-2Z-gOR"/>
                         </constraints>
                     </view>
                     <connections>
