@@ -71,7 +71,7 @@ open class ActionButton: NSObject {
     fileprivate var blurVisualEffect: UIVisualEffectView!
     
     // Distance between each item action
-    fileprivate let itemOffset = -55
+    fileprivate let itemOffset = -45
     
     /// the float button's radius
     fileprivate let floatButtonRadius = 50
@@ -185,7 +185,6 @@ open class ActionButton: NSObject {
             for item in optionalItems {
                 item.view.center = CGPoint(x: self.floatButton.center.x - 83, y: self.floatButton.center.y)
                 item.view.removeFromSuperview()
-                
                 self.contentView.addSubview(item.view)
             }
         }
