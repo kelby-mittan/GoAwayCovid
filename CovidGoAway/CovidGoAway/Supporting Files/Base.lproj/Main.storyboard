@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -17,9 +17,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CasesLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RNb-fa-h9p">
-                                <rect key="frame" x="101.5" y="127.5" width="211.5" height="57"/>
-                                <fontDescription key="fontDescription" name="KohinoorGujarati-Bold" family="Kohinoor Gujarati" pointSize="38"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="timeDateLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RNb-fa-h9p">
+                                <rect key="frame" x="111.5" y="153.5" width="191.5" height="42"/>
+                                <fontDescription key="fontDescription" name="KohinoorGujarati-Bold" family="Kohinoor Gujarati" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -85,6 +85,12 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="covidOne" translatesAutoresizingMaskIntoConstraints="NO" id="94v-f8-hrv">
                                 <rect key="frame" x="295" y="404" width="46.5" height="46.5"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="countryLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wVS-Tn-Lsg">
+                                <rect key="frame" x="20" y="93.5" width="374" height="60"/>
+                                <fontDescription key="fontDescription" name="KohinoorGujarati-Bold" family="Kohinoor Gujarati" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -96,6 +102,7 @@
                             <constraint firstItem="vrL-2o-48i" firstAttribute="top" secondItem="1g8-dz-bJw" secondAttribute="bottom" constant="40" id="HHf-nN-oXG"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vrL-2o-48i" secondAttribute="trailing" id="K4o-j3-ugw"/>
                             <constraint firstItem="vrL-2o-48i" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="LZd-a3-JFt"/>
+                            <constraint firstItem="RNb-fa-h9p" firstAttribute="top" secondItem="wVS-Tn-Lsg" secondAttribute="bottom" id="P4b-US-sTi"/>
                             <constraint firstItem="5El-Ya-0rc" firstAttribute="leading" secondItem="PvC-qz-rFN" secondAttribute="trailing" constant="22" id="QKn-MC-pFZ"/>
                             <constraint firstItem="5El-Ya-0rc" firstAttribute="bottom" secondItem="PvC-qz-rFN" secondAttribute="centerY" constant="-10" id="Sfs-2U-Ouk" userLabel="covidTwoBottom"/>
                             <constraint firstItem="94v-f8-hrv" firstAttribute="height" secondItem="5El-Ya-0rc" secondAttribute="height" id="TCc-jX-AHC"/>
@@ -104,17 +111,19 @@
                             <constraint firstItem="94v-f8-hrv" firstAttribute="width" secondItem="5El-Ya-0rc" secondAttribute="width" id="Wla-sH-9iD"/>
                             <constraint firstItem="PvC-qz-rFN" firstAttribute="width" secondItem="1g8-dz-bJw" secondAttribute="width" multiplier="0.3" id="av7-ab-O46"/>
                             <constraint firstItem="RNb-fa-h9p" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bKY-oP-ALw"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wVS-Tn-Lsg" secondAttribute="trailing" constant="20" id="dD3-wn-ab5"/>
                             <constraint firstItem="PvC-qz-rFN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="centerX" constant="24" id="dXX-61-Ra0"/>
+                            <constraint firstItem="wVS-Tn-Lsg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="eYw-ce-m2b"/>
                             <constraint firstItem="PvC-qz-rFN" firstAttribute="top" secondItem="1g8-dz-bJw" secondAttribute="centerY" constant="24" id="ica-Jm-LUy"/>
                             <constraint firstItem="vrL-2o-48i" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.25" id="jnJ-xk-ySf"/>
                             <constraint firstItem="PvC-qz-rFN" firstAttribute="height" secondItem="1g8-dz-bJw" secondAttribute="height" multiplier="0.3" id="kis-qG-QeC"/>
-                            <constraint firstItem="1g8-dz-bJw" firstAttribute="top" secondItem="RNb-fa-h9p" secondAttribute="bottom" constant="40" id="yvP-2Z-gOR"/>
+                            <constraint firstItem="1g8-dz-bJw" firstAttribute="top" secondItem="RNb-fa-h9p" secondAttribute="bottom" constant="29" id="yvP-2Z-gOR"/>
                             <constraint firstItem="5El-Ya-0rc" firstAttribute="height" secondItem="PvC-qz-rFN" secondAttribute="height" multiplier="0.75" id="zP7-f1-9dQ"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="casesLabel" destination="RNb-fa-h9p" id="lbV-KF-JEA"/>
                         <outlet property="collectionView" destination="vrL-2o-48i" id="Uy1-6J-Nz3"/>
+                        <outlet property="countryLabel" destination="wVS-Tn-Lsg" id="LBu-mI-yG1"/>
                         <outlet property="covidOneCenterConstraint" destination="dXX-61-Ra0" id="ORI-Nv-QTF"/>
                         <outlet property="covidOneIV" destination="PvC-qz-rFN" id="f2T-XQ-pzp"/>
                         <outlet property="covidThreeIV" destination="94v-f8-hrv" id="xun-0c-tEw"/>
@@ -123,6 +132,7 @@
                         <outlet property="covidTwoIV" destination="5El-Ya-0rc" id="KBe-Ol-ZZM"/>
                         <outlet property="happySadImageView" destination="1g8-dz-bJw" id="ZUB-LW-LHR"/>
                         <outlet property="maskImageCenterConstraint" destination="4Zm-EB-0ey" id="YRA-Dk-C0p"/>
+                        <outlet property="timeDateLabel" destination="RNb-fa-h9p" id="lbV-KF-JEA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

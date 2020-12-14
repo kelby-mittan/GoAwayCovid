@@ -10,7 +10,8 @@ import UIKit
 class CasesUSController: UIViewController {
     
     @IBOutlet var happySadImageView: UIImageView!
-    @IBOutlet var casesLabel: UILabel!
+    @IBOutlet var countryLabel: UILabel!
+    @IBOutlet var timeDateLabel: UILabel!
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var covidOneIV: UIImageView!
     @IBOutlet var covidTwoIV: UIImageView!
@@ -21,6 +22,8 @@ class CasesUSController: UIViewController {
     @IBOutlet var covidOneCenterConstraint: NSLayoutConstraint!
     @IBOutlet var covidTwoBottomConstraint: NSLayoutConstraint!
     @IBOutlet var covidThreeTopConstraint: NSLayoutConstraint!
+    
+    private var actionButton : ActionButton!
     
     let apiClient = APIClient()
     
@@ -56,14 +59,14 @@ class CasesUSController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setGradientBackground()
-        casesLabel.textColor = .white
+        timeDateLabel.textColor = .white
+        countryLabel.textColor = .white
         getCountryData()
         happySadImageView.image = UIImage(named: "faceMask")
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.backgroundColor = .clear
-//        animateImageView()
-        offset = collectionView.contentOffset.x
+        setupFloatingButtons()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -72,7 +75,8 @@ class CasesUSController: UIViewController {
         covidOneCenterConstraint.constant += view.bounds.width
         covidTwoBottomConstraint.constant -= view.bounds.height/2.5
         covidThreeTopConstraint.constant += view.bounds.height/2.5
-        casesLabel.text = ""
+        timeDateLabel.text = ""
+        countryLabel.text = ""
     }
     
     private func setGradientBackground() {
@@ -86,6 +90,38 @@ class CasesUSController: UIViewController {
         self.view.layer.insertSublayer(gradientLayer, at:0)
     }
     
+    private func setupFloatingButtons() {
+        
+        let usaButton = ActionButtonItem(title: "", image: "🇺🇸".emojiToImage())
+        usaButton.action = { item in self.view.backgroundColor = UIColor.red }
+        
+        let ukButton = ActionButtonItem(title: "", image: "🇬🇧".emojiToImage())
+        ukButton.action = { item in self.view.backgroundColor = UIColor.red }
+        
+        let italyButton = ActionButtonItem(title: "", image: "🇮🇹".emojiToImage())
+        italyButton.action = { [weak self] item in
+            print("Italy")
+            guard let italy = self?.countries.filter({ $0.country == "Italy" }).first else {
+                return
+            }
+            self?.countryLabel.text = italy.country
+            self?.country = italy
+            self?.getCountryData(self?.country?.country ?? "USA")
+            self?.collectionView.reloadData()
+            self?.actionButton.toggleMenu()
+        }
+        
+        let germanyButton = ActionButtonItem(title: "", image: "🇩🇪".emojiToImage())
+        germanyButton.action = { item in self.view.backgroundColor = UIColor.red }
+        
+        
+        actionButton = ActionButton(attachedToView: self.view, items: [usaButton,ukButton,italyButton,germanyButton])
+        actionButton.setTitle("🌎", forState: UIControl.State())
+        actionButton.backgroundColor = .clear
+        actionButton.action = { button in button.toggleMenu()}
+        
+    }
+    
     private func animateCovidImageViews() {
 //        if collectionView.contentOffset.x > 200 {
 //            UIView.transition(with: happySadImageView, duration: 0.75, options: .transitionCrossDissolve, animations: {
@@ -94,21 +130,19 @@ class CasesUSController: UIViewController {
 //            }, completion: nil)
 //        }
         
-        UIView.animate(withDuration: 1.0, delay: 0, options: [.curveEaseInOut,.autoreverse,.repeat]) {
-            self.covidOneIV.transform = CGAffineTransform(rotationAngle: -.pi/20)
-            self.covidOneIV.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+        UIView.animate(withDuration: 1.0, delay: 0, options: [.curveEaseInOut,.autoreverse,.repeat]) { [weak self] in
+            self?.covidOneIV.transform = CGAffineTransform(rotationAngle: -.pi/20)
+            self?.covidOneIV.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
         }
         
-        UIView.animate(withDuration: 0.8, delay: 0.2, options: [.curveEaseInOut,.repeat,.autoreverse]) {
-            self.covidTwoIV.transform = CGAffineTransform(rotationAngle: .pi/10)
-            self.covidTwoIV.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
-//            self.covidTwoIV.transform = CGAffineTransform(translationX: -4, y: 4)
+        UIView.animate(withDuration: 0.8, delay: 0.2, options: [.curveEaseInOut,.repeat,.autoreverse]) { [weak self] in
+            self?.covidTwoIV.transform = CGAffineTransform(rotationAngle: .pi/10)
+            self?.covidTwoIV.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
         }
         
-        UIView.animate(withDuration: 1.2, delay: 0.3, options: [.curveEaseInOut,.repeat,.autoreverse]) {
-            self.covidThreeIV.transform = CGAffineTransform(rotationAngle: -.pi/12)
-            self.covidThreeIV.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
-//            self.covidThreeIV.transform = CGAffineTransform(translationX: -4, y: 0)
+        UIView.animate(withDuration: 1.4, delay: 0.3, options: [.curveEaseInOut,.repeat,.autoreverse]) { [weak self] in
+            self?.covidThreeIV.transform = CGAffineTransform(rotationAngle: -.pi/12)
+            self?.covidThreeIV.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
         }
 
 
@@ -125,19 +159,21 @@ class CasesUSController: UIViewController {
         saveLastChecked()
     }
     
-    private func getCountryData() {
+    private func getCountryData(_ countryName: String = "USA") {
         apiClient.fetchAllData { [weak self] (result) in
             switch result {
             case .failure(let error):
                 print(error.localizedDescription)
+                self?.timeDateLabel.text = "try again later"
             case .success(let countries):
                 DispatchQueue.main.async {
                     self?.countries = countries
-                    guard let usa = countries.filter({ $0.country == "USA" }).first else {
+                    guard let usa = countries.filter({ $0.country == countryName }).first else {
                         return
                     }
                     self?.country = usa
-                    self?.casesLabel.text = usa.updated.since1970ToStr()
+                    self?.countryLabel.text = usa.country
+                    self?.timeDateLabel.text = usa.updated.since1970ToStr()
                     self?.dataTupleArr = self?.country?.getCountryTupleArray() ?? []
                 }
             }
@@ -204,5 +240,7 @@ extension CasesUSController: UICollectionViewDelegateFlowLayout, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
+    
+    
     
 }

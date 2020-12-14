@@ -21,6 +21,9 @@
 		0261B20C258482FD00610486 /* DateString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0261B20B258482FD00610486 /* DateString.swift */; };
 		0261B21125869A9100610486 /* DataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0261B21025869A9000610486 /* DataCell.swift */; };
 		0261B2162586B4FE00610486 /* IntAndDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0261B2152586B4FE00610486 /* IntAndDouble.swift */; };
+		02F574172587E012005278D9 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F574162587E012005278D9 /* ActionButton.swift */; };
+		02F5741C2587E033005278D9 /* ActionButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F5741B2587E033005278D9 /* ActionButtonItem.swift */; };
+		02F574212587E182005278D9 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F574202587E182005278D9 /* String.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +64,9 @@
 		0261B20B258482FD00610486 /* DateString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateString.swift; sourceTree = "<group>"; };
 		0261B21025869A9000610486 /* DataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCell.swift; sourceTree = "<group>"; };
 		0261B2152586B4FE00610486 /* IntAndDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntAndDouble.swift; sourceTree = "<group>"; };
+		02F574162587E012005278D9 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
+		02F5741B2587E033005278D9 /* ActionButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButtonItem.swift; sourceTree = "<group>"; };
+		02F574202587E182005278D9 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +180,9 @@
 				0261B2022584393200610486 /* UserDefaults.swift */,
 				0261B20B258482FD00610486 /* DateString.swift */,
 				0261B2152586B4FE00610486 /* IntAndDouble.swift */,
+				02F574202587E182005278D9 /* String.swift */,
+				02F574162587E012005278D9 /* ActionButton.swift */,
+				02F5741B2587E033005278D9 /* ActionButtonItem.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -308,15 +317,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02F5741C2587E033005278D9 /* ActionButtonItem.swift in Sources */,
 				0261B2162586B4FE00610486 /* IntAndDouble.swift in Sources */,
 				0261B1A425840FFC00610486 /* AppDelegate.swift in Sources */,
 				0261B1E52584134F00610486 /* CasesUSController.swift in Sources */,
 				0261B2032584393200610486 /* UserDefaults.swift in Sources */,
 				0261B21125869A9100610486 /* DataCell.swift in Sources */,
+				02F574212587E182005278D9 /* String.swift in Sources */,
 				0261B1A625840FFC00610486 /* SceneDelegate.swift in Sources */,
 				0261B20C258482FD00610486 /* DateString.swift in Sources */,
 				0261B1ED2584169600610486 /* APIClient.swift in Sources */,
 				0261B1F22584171B00610486 /* CovidCountryData.swift in Sources */,
+				02F574172587E012005278D9 /* ActionButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
