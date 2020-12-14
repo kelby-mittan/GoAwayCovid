@@ -13,10 +13,14 @@ class CasesUSController: UIViewController {
     @IBOutlet var casesLabel: UILabel!
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var covidOneIV: UIImageView!
+    @IBOutlet var covidTwoIV: UIImageView!
+    @IBOutlet var covidThreeIV: UIImageView!
     
     
     @IBOutlet var maskImageCenterConstraint: NSLayoutConstraint!
     @IBOutlet var covidOneCenterConstraint: NSLayoutConstraint!
+    @IBOutlet var covidTwoBottomConstraint: NSLayoutConstraint!
+    @IBOutlet var covidThreeTopConstraint: NSLayoutConstraint!
     
     let apiClient = APIClient()
     
@@ -31,13 +35,22 @@ class CasesUSController: UIViewController {
         }
     }
     
+    private var offset: CGFloat = 0.0 {
+        didSet {
+            animateCovidImageViews()
+        }
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         maskImageCenterConstraint.constant = 0
-        covidOneCenterConstraint.constant = 0
+        covidOneCenterConstraint.constant = 20
+        covidTwoBottomConstraint.constant = 0
+        covidThreeTopConstraint.constant = -10
         UIView.animate(withDuration: 1.0) { [weak self] in
             self?.view.layoutIfNeeded()
         }
+        animateCovidImageViews()
     }
     
     override func viewDidLoad() {
@@ -49,13 +62,16 @@ class CasesUSController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.backgroundColor = .clear
-        animateImageView()
+//        animateImageView()
+        offset = collectionView.contentOffset.x
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         maskImageCenterConstraint.constant -= view.bounds.width
         covidOneCenterConstraint.constant += view.bounds.width
+        covidTwoBottomConstraint.constant -= view.bounds.height/2.5
+        covidThreeTopConstraint.constant += view.bounds.height/2.5
         casesLabel.text = ""
     }
     
@@ -70,17 +86,32 @@ class CasesUSController: UIViewController {
         self.view.layer.insertSublayer(gradientLayer, at:0)
     }
     
-    private func animateImageView() {
-        if collectionView.contentOffset.x > 200 {
-            UIView.transition(with: happySadImageView,
-                              duration: 0.75,
-                              options: .transitionCrossDissolve,
-                              animations: {
-                                self.happySadImageView.image = UIImage(named: "cry")
-                                self.covidOneIV.alpha = 0
-                              },
-                              completion: nil)
+    private func animateCovidImageViews() {
+//        if collectionView.contentOffset.x > 200 {
+//            UIView.transition(with: happySadImageView, duration: 0.75, options: .transitionCrossDissolve, animations: {
+//                self.happySadImageView.image = UIImage(named: "cry")
+//                self.covidOneIV.alpha = 0
+//            }, completion: nil)
+//        }
+        
+        UIView.animate(withDuration: 1.0, delay: 0, options: [.curveEaseInOut,.autoreverse,.repeat]) {
+            self.covidOneIV.transform = CGAffineTransform(rotationAngle: -.pi/20)
+            self.covidOneIV.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
         }
+        
+        UIView.animate(withDuration: 0.8, delay: 0.2, options: [.curveEaseInOut,.repeat,.autoreverse]) {
+            self.covidTwoIV.transform = CGAffineTransform(rotationAngle: .pi/10)
+            self.covidTwoIV.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+//            self.covidTwoIV.transform = CGAffineTransform(translationX: -4, y: 4)
+        }
+        
+        UIView.animate(withDuration: 1.2, delay: 0.3, options: [.curveEaseInOut,.repeat,.autoreverse]) {
+            self.covidThreeIV.transform = CGAffineTransform(rotationAngle: -.pi/12)
+            self.covidThreeIV.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+//            self.covidThreeIV.transform = CGAffineTransform(translationX: -4, y: 0)
+        }
+
+
     }
     
     private func getLastTime() -> String {
@@ -152,8 +183,9 @@ extension CasesUSController: UICollectionViewDelegateFlowLayout, UICollectionVie
         cell.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width).isActive = true
         cell.configCell(for: dataTupleArr[indexPath.row])
         print("YOOOO: \(collectionView.contentOffset.x)")
+        
         //        getIndexPath()
-        animateImageView()
+//        animateImageView()
         return cell
     }
     
