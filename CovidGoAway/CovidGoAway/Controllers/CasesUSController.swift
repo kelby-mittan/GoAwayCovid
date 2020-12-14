@@ -8,10 +8,15 @@
 import UIKit
 
 class CasesUSController: UIViewController {
-
+    
     @IBOutlet var happySadImageView: UIImageView!
     @IBOutlet var casesLabel: UILabel!
     @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet var covidOneIV: UIImageView!
+    
+    
+    @IBOutlet var maskImageCenterConstraint: NSLayoutConstraint!
+    @IBOutlet var covidOneCenterConstraint: NSLayoutConstraint!
     
     let apiClient = APIClient()
     
@@ -26,6 +31,15 @@ class CasesUSController: UIViewController {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        maskImageCenterConstraint.constant = 0
+        covidOneCenterConstraint.constant = 0
+        UIView.animate(withDuration: 1.0) { [weak self] in
+            self?.view.layoutIfNeeded()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setGradientBackground()
@@ -35,6 +49,14 @@ class CasesUSController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.backgroundColor = .clear
+        animateImageView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        maskImageCenterConstraint.constant -= view.bounds.width
+        covidOneCenterConstraint.constant += view.bounds.width
+        casesLabel.text = ""
     }
     
     private func setGradientBackground() {
@@ -44,8 +66,21 @@ class CasesUSController: UIViewController {
         gradientLayer.colors = [color1, color2]
         gradientLayer.locations = [0.0, 1.0]
         gradientLayer.frame = self.view.bounds
-                
+        
         self.view.layer.insertSublayer(gradientLayer, at:0)
+    }
+    
+    private func animateImageView() {
+        if collectionView.contentOffset.x > 200 {
+            UIView.transition(with: happySadImageView,
+                              duration: 0.75,
+                              options: .transitionCrossDissolve,
+                              animations: {
+                                self.happySadImageView.image = UIImage(named: "cry")
+                                self.covidOneIV.alpha = 0
+                              },
+                              completion: nil)
+        }
     }
     
     private func getLastTime() -> String {
@@ -84,6 +119,23 @@ class CasesUSController: UIViewController {
         UserDefaults.standard.set(lastChecked.first?.updated, forKey: UserDefaults.lastTimeKey)
     }
     
+    private func getIndexPath(_ cv: UICollectionView) {
+        let screen = UIScreen.main.bounds.width-30
+        print("Screen \(screen)")
+        //        print(collectionView.indexPathsForVisibleItems.first?.row)
+        switch cv.contentOffset.x {
+        case -100..<screen:
+            print("1")
+        case screen..<screen*2:
+            print("2")
+        case 800..<1200:
+            print("3")
+        case 1200..<1600:
+            print("4")
+        default:
+            print("5")
+        }
+    }
     
 }
 
@@ -99,6 +151,9 @@ extension CasesUSController: UICollectionViewDelegateFlowLayout, UICollectionVie
         cell.backgroundColor = .clear
         cell.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width).isActive = true
         cell.configCell(for: dataTupleArr[indexPath.row])
+        print("YOOOO: \(collectionView.contentOffset.x)")
+        //        getIndexPath()
+        animateImageView()
         return cell
     }
     
@@ -117,4 +172,5 @@ extension CasesUSController: UICollectionViewDelegateFlowLayout, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
+    
 }
