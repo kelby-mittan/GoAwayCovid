@@ -162,6 +162,10 @@ class CasesUSController: UIViewController {
 //            }, completion: nil)
 //        }
         
+        UIView.animate(withDuration: 0.55, delay: 0, options: [.curveEaseInOut,.autoreverse,.repeat]) { [weak self] in
+            self?.happySadImageView.transform = CGAffineTransform(rotationAngle: -.pi/50)
+        }
+        
         UIView.animate(withDuration: 1.0, delay: 0, options: [.curveEaseInOut,.autoreverse,.repeat]) { [weak self] in
             self?.covidOneIV.transform = CGAffineTransform(rotationAngle: -.pi/20)
             self?.covidOneIV.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
